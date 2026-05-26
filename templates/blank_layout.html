@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--we have added this view port tag and set initial scale to 1 so that our side shoudl be adjustable according to different devices especially for mobile devices-->
+        <title>BROKART | The #1 Ecommerce Website </title>
+        <link rel="stylesheet" href="{% static 'CSS/brokart.css' %}"> 
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"><!--poppins font from google fonts website then select popping select some types and then embed-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><!--link to connect to font awesome 4 to use different icons, just type font awesome 4 cdn and click on first link and copy the url and past it here with rel="stylesheet"-->
+    </head>
+
+    <body>
+
+        <!--making header-->
+   <div class="header">
+        <div class="container">
+            {% include 'menu.html' %} <!--this will include menu.html in header.html and we can use it in any other template by including header.html in that template-->
+            {% block banner %}
+            {% endblock banner %}
+        </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <!--offer-->
+
+    <!----------------testimonials-------------->
+
+
+    <!----------brands-------------->
+
+     
+    <!-------footer------->
+    <div class="footer">
+        <div class="container"><!-- it will follow same styling as of header-->
+            <div class="row">
+                
+                <!--it contains 4 columns col1 contains text and col2 contain image col3 contains useful links and col4 contains social media links-->
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and Ios mobile phone.</p>
+                   
+                   <!---add images of play store and appstore in 1st column-->
+                    <div class="app-logo">
+                        <img src="{% static 'images/play-store.png' %}">
+                        <img src="{% static 'images/app-store.png' %}">
+                    </div>   
+                
+                </div>
+
+                <div class="footer-col-2">
+                    <img src="{% static 'images/logo-white.png' %}">
+                    <p>Our purpose is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                    
+                </div>
+
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <!--add horizontal line and copyright text along with clickable link-->
+            <hr>
+            <a href="" class="copyright">Copyright 2020   - Made with ❤️ by Muhammad Muneeb Waseem</a>
+        </div>
+    </div>         
+
+    <!-----------------JS----------------------->
+    <script>
+        //declare variable MenuItems which take ul having id "MenuItems"
+        
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";//by default, we have set menu or dropdown menu height to 0px, means it is close by default
+        
+        function menutoggle()//this is the function which we have called above in nav which works on small devices and users click on it
+        {
+            if (MenuItems.style.maxHeight =="0px")//when user click on it and if it is closed or its height is 0px, then it will open or it should have heigt of 200px upon clicking
+            {
+                MenuItems.style.maxHeight = "200px"
+            }
+            else//if user not clicked or it has already opened, then it will upon clicking again closed
+            {
+                MenuItems.style.maxHeight = "0px" 
+            }
+        
+        }
+    </script>    
+    {% block extra_scripts %}
+
+    {% endblock extra_scripts %}
+    </body>
+
+</html>

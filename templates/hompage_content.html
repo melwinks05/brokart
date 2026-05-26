@@ -1,0 +1,73 @@
+{% load static %}
+<!--Featured categories-->
+    <!--categores class to edit whole section, then small container class to edit whole row, then row class to edit area surrounding images, then col-3 class to edit col of each image then col-3 img used in css to edit image -->
+    <div class="categories">
+
+        <!--we will create 3 column for 3 images at a time in single row like we did above by making 2 columns-->
+
+        <!--small container class contains row which consist of whole columns sections then col-3 which consist of col of images-->
+        <div class="small container">,<!--container class to edit images section-->
+            <div class="row">
+
+                <!--3 columns for 3 images-->
+                <div class="col-3">
+                    <img src="{% static 'images/category-1.jpg' %}"" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="{% static 'images/category-2.jpg' %}"" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="{% static 'images/category-3.jpg' %}"" alt="">
+                </div>
+    
+            </div>
+        </div>
+
+    </div>
+
+     <!--Featured Products-->
+     <!--using same class small container to maintain same styling-->
+     
+     <div class="small container">
+         <!--using again same row class to maintain same styling -->
+        <h2 class="title">Featured Products</h2>
+         <div class="row">
+            {% for product in featured_products %}
+                         <div class="col-4">
+               <a href="{% url 'detail_product' product.id %}">
+                 <img src="{{ product.image.url }}"></a><!--product img-->
+                 <h4>{{ product.title }}</h4><!--product title-->
+                 <div class="rating"><!--add stars for rating of product from font awesome 4-->
+                    <i class="fa fa-star" aria-hidden="true"></i><!--add 4 black start and one transparent star to show 4 out of 5 rating-->
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                 </div>
+                 <p>${{ product.price }}</p><!--product price-->
+             </div>
+             {% endfor %}
+         </div>
+
+         <!--adding latest products in class small container after featured products row-->
+
+         <h2 class="title">Latest Products</h2>
+         <div class="row">
+            {% for product in latest_products %}
+                         <div class="col-4">
+               <a href="{% url 'detail_product' product.id %}">
+                 <img src="{{ product.image.url }}"></a><!--product img-->
+                 <h4>{{ product.title }}</h4><!--product title-->
+                 <div class="rating"><!--add stars for rating of product from font awesome 4-->
+                    <i class="fa fa-star" aria-hidden="true"></i><!--add 4 black start and one transparent star to show 4 out of 5 rating-->
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                 </div>
+                 <p>${{ product.price }}</p><!--product price-->
+             </div>
+             {% endfor %}
+         </div>   
+
+    </div>

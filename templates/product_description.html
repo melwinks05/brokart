@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="small-container single-product">
+    <div class="row">
+    
+    <!--we have created 2 columns, one for the image and other for the text
+    related to an image-->
+
+        <div class="col-2">
+                <img src="{{ product.image.url }}" width="100%" id="product-img"><!--id in bigger image so we can replace with its variants, so when we click on its different angle, it will show in large picture using JS-->
+    
+
+        </div>
+
+    <!--column related to the text of single product-->
+        <div class="col-2">
+            <p>{{ product.title}}</p>
+            <h1>{{product.title}}</h1>
+            <h4>${{ product.price }}</h4>
+
+            <!--no of products-->
+            <form method="post" action="{% url 'add_to_cart' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="number" name="quantity" value="1">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit" class="btn">Add To Cart</button>
+            </form>
+
+            <h3>Product Details <i class="fa fa-indent" aria-hidden="true"></i></h3>
+            <br>
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{% load static %}
+{% load multiply %}
+{% load gettotal %}
+
+<div class="small container cart-page">
+    {% if cart %}
+        <table>
+            <tbody><tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            {% for cart_item in cart.added_items.all %}
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="{{ cart_item.product.image.url }}">
+                        <div>
+                            <p>{{ cart_item.product.name }}</p>
+                            <small>Price: ${{ cart_item.product.price }}</small>
+                            <a href="{% url 'remove_item' cart_item.id %}">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" disabled value="{{ cart_item.quantity }}"></td>
+                <td>${{ cart_item.product.price | multiply:cart_item.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody></table>
+
+        <div class="total-price">
+    <table>
+        <tbody>
+            <tr>
+                <td>Total</td>
+                <td>${{ cart | gettotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Move the form completely outside of the table -->
+    <form method="post" action="{% url 'checkout' %}">
+        {% csrf_token %}
+        <input type="hidden" name="total" value="{{ cart | gettotal }}">
+        <button class="btn" type="submit" style="margin-top: 15px; width: 100%;">Proceed to Checkout</button>
+    </form>
+</div>
+
+        {% else %}
+        <h2>Your cart is empty</h2>
+    {% endif %}
+    </div>
+    

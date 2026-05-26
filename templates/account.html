@@ -1,0 +1,35 @@
+{% extends 'blank_layout.html' %}
+{% block banner %}
+{% include 'account_banner.html' %}
+{% endblock banner %}
+    {% block extra_scripts %}
+    <script>
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("Indicator");
+
+            function register(){//by 
+
+                RegForm.style.transform = "translateX(0px)";//in Css, by default we set translatex(100) so by default, we are at register, thats why when person clicks on register, everything stayed there stayed there
+                LoginForm.style.transform = "translateX(0px)";
+                Indicator.style.transform = "translateX(100px)";//As mentioned above, in css translatex(100) is set, so for indicator to be by default on register, we set it to 100px;
+            }
+
+            function login(){
+
+                RegForm.style.transform = "translateX(300px)";//when person clicks on login, login form shift to 300px forward and register form goes 300px outside, but we cannot see it as we use overflow=hidden in css, if want to see, then remove overflow property.
+                LoginForm.style.transform = "translateX(300px)";
+                Indicator.style.transform = "translateX(0px)";//as by default on 100px or on register, so when clicks on login, it comes back to 0 px
+            }
+
+    </script>
+    {% if register %}
+    <script>
+        register();
+    </script>
+    {% else %}
+    <script>
+        login();
+    </script>
+    {% endif %}
+    {% endblock extra_scripts %}

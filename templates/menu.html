@@ -1,0 +1,24 @@
+            {% load static %} <!--this is used to load static files like css, js, images etc. in our template-->
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="{% static 'images/logo.png' %}"" alt="RedStore logo" width=125px></a>
+                </div>
+    
+                <!--menu-->
+                 <nav> 
+                    <ul id="MenuItems"><!--use this id in js-->                   
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'list_product' %}">Products</a></li>
+                        {% if not user.is_authenticated %} <!--if user is not authenticated then only show the account and login options in navigation section-->
+                        <li><a href="{% url 'account' %}">Account</a></li>
+                        {% else %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="{% url 'orders' %}">Orders</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% if user.is_authenticated %} <!--if user is authenticated then only show the cart icon in navigation section-->
+                <a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}"" alt="cart" width=30px height=30px></a>
+                {% endif %}
+                <img src="{% static 'images/menu.png' %}"" class="menu-icon" onclick="menutoggle()"><!--this is the menu icon which  will be displayed on smaller screens with 3 lines, and when we click on it, it will open upside down or like dropdown menu, to open like this we have pass one menutoggle function to it which we have written in the end in js-->
+            </div>
