@@ -1,7 +1,7 @@
             {% load static %} <!--this is used to load static files like css, js, images etc. in our template-->
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="{% static 'images/logo.png' %}"" alt="RedStore logo" width=125px></a>
+                    <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="RedStore logo" width=125px></a>
                 </div>
     
                 <!--menu-->

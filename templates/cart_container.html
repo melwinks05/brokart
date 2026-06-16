@@ -3,7 +3,7 @@
 {% load gettotal %}
 
 <div class="small container cart-page">
-    {% if cart %}
+    {% if cart.items %}
         <table>
             <tbody><tr>
                 <th>Product</th>
@@ -47,7 +47,10 @@
 </div>
 
         {% else %}
-        <h2>Your cart is empty</h2>
+        <div class="cart-message">
+            <h2>Your cart is empty</h2>
+        </div>
+        
     {% endif %}
     </div>
     

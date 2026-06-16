@@ -220,16 +220,16 @@ small{
 }
 /*designing footer*/
 .footer{
-    background: #000;/*footer background color is black*/
-    color: #8a8a8a;/*text color*/
+    background: radial-gradient(#fff, #ffd6d6);/*footer background color is black*/
+    color: #626161;/*text color*/
     font-size: 14px;
     padding: 60px 0 20px;
 }
 .footer p{
-    color: #8a8a8a;/*paragraphs color in class footer*/
+    color: #626161;/*paragraphs color in class footer*/
 }
 .footer h3{
-    color: #fff;/*heading color is white*/
+    color: black;/*heading color is white*/
     margin-bottom: 20px;
 }
 .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
@@ -269,7 +269,7 @@ ul{
 .copyright{
     display: block;
     text-align: center;
-    color: #fff;
+    color: black;
 }
 
 /*-----------media query for menu-------------*/
@@ -393,6 +393,32 @@ input:focus{
 .cart-page{
     margin: 80px auto;
 }
+.orders-message{
+    background: radial-gradient(#1c1c1c, #ff2b2b);
+    max-width: 300px;
+    border-radius: 10px;
+    padding: 5px;
+    display: grid;
+    place-items: center;
+    margin-left: 500px;  
+}
+.orders-message p{
+    color: white;
+}
+
+.cart-message{
+    background: radial-gradient(#1c1c1c, #ff2b2b);
+    max-width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    margin-left: 500px
+}
+.cart-message h2{
+    color: white;
+}
+
 table{
     width: 100%;/*takes full width of the web page*/
     border-collapse: collapse;
