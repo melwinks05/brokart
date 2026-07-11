@@ -125,3 +125,15 @@ STATICFILES_DIRS=[
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Option 1: Allow your exact domain and all Vercel subdomains (Recommended)
+ALLOWED_HOSTS = [
+    'brokart-git-main-melwin-k-s.vercel.app', 
+    '.vercel.app', 
+    'localhost', 
+    '127.0.0.1'
+]
+
+# Option 2: Allow absolutely any host (Quick fix, less secure for production)
+ALLOWED_HOSTS = ['*']
+
