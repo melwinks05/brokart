@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'brokart.urls'
@@ -129,6 +130,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Option 1: Allow your exact domain and all Vercel subdomains (Recommended)
 ALLOWED_HOSTS = [
     'brokart-git-main-melwin-k-s.vercel.app', 
+    "your-app.onrender.com",
     '.vercel.app', 
     'localhost', 
     '127.0.0.1'
